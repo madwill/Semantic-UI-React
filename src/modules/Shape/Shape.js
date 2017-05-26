@@ -53,7 +53,11 @@ export default class Shape extends Component {
     const ElementType = getElementType(Shape, this.props)
 
     return (
-      <ElementType {...rest} className={classes}>{children}</ElementType>
+      <ElementType {...rest} className={classes}>
+      <div className="sides">
+        {children}
+      </div>
+      </ElementType>
     )
   }
 }

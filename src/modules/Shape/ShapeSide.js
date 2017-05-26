@@ -8,6 +8,7 @@ import {
   getUnhandledProps,
 	customPropTypes,
   META,
+  useKeyOnly,
 } from '../../lib'
 
 /**
@@ -16,12 +17,14 @@ import {
 function ShapeSide(props) {
   const {
     children,
-    className,   
+    className,
+    active,   
   } = props
 
   const classes = cx(
     className,  
-    'content',
+    'side',
+    useKeyOnly(active, 'active')
   )
   const rest = getUnhandledProps(ShapeSide, props)
   const ElementType = getElementType(ShapeSide, props)
@@ -56,6 +59,9 @@ ShapeSide.propTypes = {
 
   /** A card can contain extra content meant to be formatted separately from the main content. */
   centered: PropTypes.bool,
+
+   /** Visible side  */
+  active: PropTypes.bool,
 
 }
 
