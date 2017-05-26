@@ -141,6 +141,10 @@ export { default as Sidebar } from './modules/Sidebar'
 export { default as SidebarPushable } from './modules/Sidebar/SidebarPushable'
 export { default as SidebarPusher } from './modules/Sidebar/SidebarPusher'
 
+export { default as Shape } from './modules/Shape'
+export { default as ShapeSide } from './modules/Shape/ShapeSide'
+export { default as ShapeContent } from './modules/Shape/ShapeContent'
+
 // Views
 export { default as Advertisement } from './views/Advertisement'
 
