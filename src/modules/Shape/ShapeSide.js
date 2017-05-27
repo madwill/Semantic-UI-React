@@ -63,6 +63,8 @@ ShapeSide.propTypes = {
    /** Visible side  */
   active: PropTypes.bool,
 
+  
+
 }
 
 export default ShapeSide

@@ -1,16 +1,16 @@
-import cx from 'classnames'
-import React, { Component, PropTypes } from 'react'
+import cx from 'classnames';
+import React, {Component, PropTypes} from 'react';
 
 import {
   customPropTypes,
   getElementType,
   getUnhandledProps,
   META,
-  SUI
-} from '../../lib'
+  SUI,
+} from '../../lib';
 
-import ShapeSide from './ShapeSide'
-import ShapeContent from './ShapeContent'
+import ShapeSide from './ShapeSide';
+import ShapeContent from './ShapeContent';
 
 /**
 * A shape is a three dimensional object displayed on a two dimensional plane.
@@ -26,39 +26,37 @@ export default class Shape extends Component {
     /** Additional classes. */
     className: PropTypes.string,
 
-    type: PropTypes.oneOf(SUI.SHAPE_TYPE),
-  }
+    type: PropTypes.oneOf (SUI.SHAPE_TYPE),
+
+    /** The shape element height attribute. */
+    height: PropTypes.oneOfType ([PropTypes.number, PropTypes.string]),
+
+    /** The shape element width attribute. */
+    width: PropTypes.oneOfType ([PropTypes.number, PropTypes.string]),
+  };
 
   static _meta = {
     name: 'Shape',
     type: META.TYPES.MODULE,
-  }
+  };
 
-  static Content = ShapeContent
-  static Side = ShapeSide
+  static Content = ShapeContent;
+  static Side = ShapeSide;  
 
-  render() {
-    const {
-      children,
-      className,
-    } = this.props
+  render () {
+    const {children, className} = this.props;
 
-    const classes = cx(
-      'ui',
-      'shape',
-      className,
-    )
+    const classes = cx ('ui', 'shape', className);
 
-    const rest = getUnhandledProps(Shape, this.props)
-    const ElementType = getElementType(Shape, this.props)
+    const rest = getUnhandledProps (Shape, this.props);
+    const ElementType = getElementType (Shape, this.props);
 
     return (
       <ElementType {...rest} className={classes}>
-      <div className="sides">
-        {children}
-      </div>
+        <div className="sides">
+          {children}
+        </div>
       </ElementType>
-    )
+    );
   }
 }
-
